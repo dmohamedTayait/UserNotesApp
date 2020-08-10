@@ -1,0 +1,36 @@
+
+  <%= form_for @note, :html => {:id => "new_note" ,:class =>"pt-1" } do |form| %>
+     <% if @note.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+    <ul>
+      <% @note.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="row">
+      <div class="col-2">
+        <%= form.label :title %>
+      </div>
+      <div class="col-10">
+        <%= form.text_field :title %>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-2">
+      <%= form.label :body %>
+    </div>
+    <div class="col-10">
+      <%= form.text_field :body %>
+    </div>
+  </div>
+
+    <%= form.submit %>
+  </div>
+  <% end %>
+</div>

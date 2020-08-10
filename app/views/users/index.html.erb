@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<div class="col-12" id="notice">
+  Shared Notes
+</div>
+<table class="table pb-3">
+  <tr>
+    <th>User</th>
+    <th>Note</th>
+  </tr>
+  <% @notes.each do |note|%>
+  <tr>
+    <td>
+      <%=note.user.name%>
+    </td>
+    <td>
+      <%=note.title%>
+    </td>
+    <td>
+      <%=note.body%>
+    </td>
+  </tr>
+
+  <%end%>
+</table>
+<%= link_to 'View My Notes', notes_path %>

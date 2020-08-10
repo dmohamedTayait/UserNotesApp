@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-12 pb-3 pt-3">
+  <%= link_to 'Create new note', new_note_path %>
+</div>
+<div class="col-12 pb-3">
+  <table class="table pb-3">
+    <% @notes.each do |note|%>
+    <tr>
+      <td>
+        <%=note.title%>
+      </td>
+      <td>
+        <%=note.body%>
+      </td>
+      <td> <%= link_to 'Edit', edit_note_path(note)%>
+      <td>
+      <td>
+        <%= link_to 'Destroy', note, data: { confirm: 'Are you sure?' }, method: :delete %>
+      </td>
+      <td>
+        <%= link_to "Edit in ggl", '/notes/open_spreadsheet?id=' + note.id.to_s%>
+      </td>
+    </tr>
+    <%end%>
+  </table>
+</div>
+
+<%= link_to 'Back to home', users_path %>

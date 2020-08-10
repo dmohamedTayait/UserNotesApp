@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserNotesApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  
+  <body>
+  <div class="container-fluid ">
+  <header>
+  <div class="col-12 pb-3 pt-3">
+  
+      <% if current_user %>
+      <div class="row">
+      <span>
+        Hi <%= current_user.name %>
+        |
+        </span>
+        <span>
+        <%= link_to 'Log out', logout_path, method: :delete %>
+        </span>
+        </div>
+      <% else %>
+      <div class="row">
+      <span>
+        <%= link_to 'Log in', login_path %>
+        |
+        </span>
+        
+      <span>
+        <%= link_to 'Sign up', new_user_path %>
+        </span>
+        </div>
+      <% end %>
+    </header>
+    
+    <%= yield %>
+    </div>
+    </div>
+  </body>
+</html>
